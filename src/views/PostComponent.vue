@@ -1,3 +1,4 @@
+/** MauwMauwwww */
 <template>
   <div>
       <h1>Posts</h1>
