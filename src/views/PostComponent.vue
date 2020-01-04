@@ -1,16 +1,3 @@
-<!--
-<template>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card card-default">
-            <div class="card card-header">Index Component</div>
-            
-            <div class="card-body">I'm an Index component</div>
-            </div>
-        </div>
-    </div>
-</template> -->
-
 <template>
   <div>
       <h1>Posts</h1>
@@ -34,7 +21,7 @@
                   <td>{{ post.title }}</td>
                   <td>{{ post.body }}</td>
                   <td><router-link :to="{name: 'edit', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td>
-                  <td><button class="btn btn-danger">Delete</button></td>
+                  <td><button class="btn btn-danger" @click.prevent="deletePost(post._id)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -42,30 +29,26 @@
 </template>
 
 <script>
-export default {
-    data() {
+  export default {
+      data() {
         return {
-            posts: []
+          posts: []
         }
+      },
+      created() {
+      let uri = 'http://localhost:4000/posts';
+      this.axios.get(uri).then(response => {
+        this.posts = response.data;
+      });
     },
-    created() {
-    let uri = 'http://localhost:4000/posts/';
-    this.axios.get(uri).then(response => {
-      this.posts = response.data;
-    });
-  },
-  methods: {
-    deletePost(id)
-    {
-      let uri = `http://localhost:4000/posts/delete/${id}`;
+    methods: {
+      deletePost(id)
+      {
+        let uri = `http://localhost:4000/posts/delete/${id}`;
         this.axios.delete(uri).then(response => {
           this.posts.splice(this.posts.indexOf(id), 1);
-    });
+        });
+      }
+    }
   }
- }
-}
 </script>
-
-<style>
-
-</style>

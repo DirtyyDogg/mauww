@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import ContentCreate from '@/components/ContentCreate.vue'
-import CreatePost from '@/components/CreatePost.vue'
+import ContentCreate from '@/components/post/ContentCreate.vue'
+import CreatePost from '@/components/post/CreatePost.vue'
 
 export default {
   name: 'createpost',

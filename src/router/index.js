@@ -2,10 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
-import HomeComponent from '../components/HomeComponent.vue'
+import HomeComponent from '../views/HomeComponent.vue'
 import CreateComponent from '../views/CreateComponent.vue'
-import IndexComponent from '../components/IndexComponent.vue'
-import EditComponent from '../components/EditComponent.vue'
+import IndexComponent from '../views/PostComponent.vue'
+import EditComponent from '../components/post/EditComponent.vue'
 
 Vue.use(VueRouter)
 
